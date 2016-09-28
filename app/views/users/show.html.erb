@@ -1,6 +1,6 @@
 
 <%flash.each do |msg_type, msg|%>
-	<p><%=msg%>, <%= @user.name.split(" ").shift%></p>
+	<div class ="alert alert-<%=msg_type%>"><%=msg%>, <%= @user.name.split(" ").shift%></div>
 <%end%>
 <h1><%= @user.name %></h1>
 

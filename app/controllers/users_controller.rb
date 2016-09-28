@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Dark Web"
   		redirect_to @user
   	else
+      flash[:danger] = "Please correct the errors below" 
   		render :new
   	end
   end

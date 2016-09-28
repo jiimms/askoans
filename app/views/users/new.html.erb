@@ -1,26 +1,41 @@
-<h1>Join in</h1>
-<%= %>
-
-<%=form_for(@user) do |user|%>
-	<ul>
-		<%@user.errors.full_messages.each do |msg|%>
-			<li><%=msg%></li>
+<div class = "container">
+<div class= "jumbotron">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  	<h1 class = "text-center page-header">Join in</h1>
+	
+	<%if @user.errors.any?%>
+		<%flash.each do |msg_type, msg|%>
+			<div class ="alert alert-<%=msg_type%>">
+				<%=msg%>
+			</div>
 		<%end%>
-	</ul>
+	<%end%>
 
-	<p>
-	<%= user.label :name%><br>
-	<%= user.text_field :name%> 
-	</p>
+	<%=form_for(@user) do |user|%>
+		<ul>
+			<%@user.errors.full_messages.each do |msg|%>
+				<li><%=msg%></li>
+			<%end%>
+		</ul>
 
-	<p>
-	<%= user.label :email%><br>
-	<%= user.email_field :email%> 
-	</p>
+		<p>
+		<%= user.label :name%><br>
+		<%= user.text_field :name, class: 'form-control'%> 
+		</p>
 
-	<p>
-	<%= user.label :password%><br>
-	<%= user.password_field :password%> 
-	</p>
-	<%= user.submit "Sign up"%>
-<%end%>
+		<p>
+		<%= user.label :email%><br>
+		<%= user.email_field :email, class: 'form-control'%> 
+		</p>
+
+		<p>
+		<%= user.label :password%><br>
+		<%= user.password_field :password, class: 'form-control'%> 
+		</p>
+		<%= user.submit "Sign up", class: 'form-control btn btn-primary'%>
+	<%end%>
+	</div>
+		</div>
+				</div>
+						</div>
