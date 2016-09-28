@@ -1,2 +1,26 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Join in</h1>
+<%= %>
+
+<%=form_for(@user) do |user|%>
+	<ul>
+		<%@user.errors.full_messages.each do |msg|%>
+			<li><%=msg%></li>
+		<%end%>
+	</ul>
+
+	<p>
+	<%= user.label :name%><br>
+	<%= user.text_field :name%> 
+	</p>
+
+	<p>
+	<%= user.label :email%><br>
+	<%= user.email_field :email%> 
+	</p>
+
+	<p>
+	<%= user.label :password%><br>
+	<%= user.password_field :password%> 
+	</p>
+	<%= user.submit "Sign up"%>
+<%end%>
