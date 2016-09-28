@@ -1,11 +1,20 @@
-
+<div class = "container">
+<div class= "jumbotron">
+<!-- <div class="row">
+  <div class="col-md-10 col-md-offset-1"> -->
 <%flash.each do |msg_type, msg|%>
-	<div class ="alert alert-<%=msg_type%>"><%=msg%>, <%= @user.name.split(" ").shift%></div>
+	<div class ="alert alert-<%=msg_type%>"><%=msg%>, <%= @user.name.split(" ").shift.capitalize%></div>
 <%end%>
-<h1><%= @user.name %></h1>
+<h1><%= (@user.name).titleize %></h1>
 
-
-<h4><%=@user.name.split(" ").shift%>'s activity</h4>
+<p>
+<div class= "page-header">
+<h4><%= (@user.name.split(" ").shift).capitalize%>'s activity</h4></p> </div>
 <h3>Questions asked</h3>
 
 <h3>Answers</h3>
+	</div>
+		</div>
+				</div>
+						</div>
+
