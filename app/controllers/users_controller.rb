@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   	if @user.save
       session[:user_id] =@user.id
       flash[:success] = "Welcome to the Dark Web"
+      log_in(@user)
   		redirect_to @user
   	else
       flash[:danger] = "Please correct the errors below" 
