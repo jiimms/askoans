@@ -1,0 +1,7 @@
+<h1>What's on your mind?</h1>
+
+<%= form_for @question do |q|%>
+	<%= q.label :title, "Ask" %>
+	<%= q.text_field :title %>
+	<%= q.submit "Set it Free!"%>
+	<% end %>

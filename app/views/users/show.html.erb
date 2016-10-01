@@ -11,6 +11,9 @@
 <div class= "page-header">
 <h4><%= (@user.name.split(" ").shift).capitalize%>'s activity</h4></p> </div>
 <h3>Questions asked</h3>
+<% @user.questions.pluck(:title, :id).each do |title, id|%>
+<h3><%= link_to title, question_path(id), class: "link-to-text-color" %></h3>
+<%end%>
 
 <h3>Answers</h3>
 	</div>

@@ -1,0 +1,19 @@
+<div class = "container">
+	<div class= "jumbotron">
+		<div class="row">
+  			<div class="col-md-10 col-md-offset-1">
+  			<H3>New Questions</H3>
+  				<% @questions.each do |q|%>
+  					<div>
+  						<h2 class= "questions_bottom_margin"><%= link_to q.title, question_path(q), class: 'link-to-text-color'%>
+  						<span class = "btn btn-default">
+  						<%= link_to "Answer it!", question_path(q) %></span></h2><small>--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%> </small><br>
+  						
+  					</div>
+  				<% end%>
+
+
+  			</div>
+  			</div>
+  			</div>
+  			</div>

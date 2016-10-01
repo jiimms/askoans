@@ -3,7 +3,10 @@
 	<% @users.each do |user|%>
 		<tr>
 			<td>
-				<%= user.name%>
+				<%= link_to user.name, user_path(user)%>
+			</td>
+			<td>
+				<%= link_to "Profile", user_path(user)%>
 			</td>
 
 			<td>

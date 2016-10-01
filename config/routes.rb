@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
+  
+  root 'questions#index'
+
+  
+
   get '/signup' => 'users#new'
 
   get '/edit' => 'users#edit'
 
-  get '/profile' => 'users#show'
 
 get '/login' => 'sessions#new'
 post '/login' => 'sessions#create'
@@ -13,7 +17,6 @@ get '/logout' => 'sessions#destroy'
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -23,5 +26,6 @@ get '/logout' => 'sessions#destroy'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :users
+    resources :questions
 
 end
