@@ -2,15 +2,18 @@
 	<div class= "jumbotron">
 		<div class="row">
   			<div class="col-md-10 col-md-offset-1">
-  			<h1>Answer this Question</h1>
+  				<h1>Answer this Question</h1>
 
-<h2 class= "questions_bottom_margin"><%=@question.title%>
-<span class = "btn btn-default">
-  						<%= link_to "Answer it!", question_path(@question) %></span></h2>
+				<h2 class= "questions_bottom_margin"><%=@question.title%>
+					<span class = "btn btn-default">
+  						<%= link_to "Answer it!", question_path(@question) %>
+  					</span>
+  				</h2>
 
-	<small>Submitted <%=time_ago_in_words(@question.created_at)%> ago by <%=@question.user.name%> </small><br>
+				<small>Submitted <%=time_ago_in_words(@question.created_at)%> ago by <%=@question.user.name%>
+				</small><br>
+			</div>
+		</div>
 	</div>
-	</div>
-	</div>
-	</div>
+</div>
 

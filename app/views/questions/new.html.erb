@@ -1,7 +1,16 @@
-<h1>What's on your mind?</h1>
+<div class = "container">
+	<div class= "jumbotron">
+		<div class="row">
+  			<div class="col-md-10 col-md-offset-1">
+  			<h2>What would you like to know today?</h2>
 
-<%= form_for @question do |q|%>
-	<%= q.label :title, "Ask" %>
-	<%= q.text_field :title %>
-	<%= q.submit "Set it Free!"%>
-	<% end %>
+			<%= form_for @question do |q|%>
+				<%= q.label :title, "Ask" %><br>
+				<%= q.text_area :title, class: "form-control" %><br>
+				<%= q.submit "Submit", class: "btn btn-primary"%>
+				<%= link_to "Back", root_path, class: "btn btn-default" %>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>

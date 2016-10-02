@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
- 
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
   def index
     @users=User.all
   end
@@ -22,11 +23,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user=User.find(params[:id])
   end
 
     def update
-    @user=User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
@@ -42,9 +41,13 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user=User.find(params[:id])
     @user.destroy
-    redirect_to users_path
+    redirect_to root_path
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to root_path unless @user == current_user
   end
 
   private
