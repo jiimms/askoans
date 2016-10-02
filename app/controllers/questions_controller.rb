@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  # before_action :authenticate_user!, except: [:index, :show]
+   before_action :set_question, only: [:edit, :update, :show, :destroy]
   before_action :logged_in_user, only: [:new, :create, :destroy]
   def new
   	@question=current_user.questions.build
@@ -21,8 +21,20 @@ class QuestionsController < ApplicationController
   def edit
   end
 
+  def update  
+      if @question.update(question_params)
+        redirect_to root_path
+      else
+        render :edit
+      end  
+  end
+
   def show
-  	@question=Question.find(params[:id])
+  end
+
+  def destroy
+    @question.delete
+    redirect_to root_path
   end
 
   private
@@ -30,5 +42,9 @@ class QuestionsController < ApplicationController
   	def question_params
   		params.require(:question).permit(:title)
   	end   	
+
+    def set_question
+      @question=Question.find(params[:id])
+    end
   
 end

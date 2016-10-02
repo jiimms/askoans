@@ -1,2 +1,16 @@
-<h1>Questions#edit</h1>
-<p>Find me in app/views/questions/edit.html.erb</p>
+<div class = "container">
+	<div class= "jumbotron">
+		<div class="row">
+  			<div class="col-md-10 col-md-offset-1">
+  			<h2>Update Question or Add details</h2>
+
+			<%= form_for @question do |q|%>
+				<%= q.label :title, "Ask" %><br>
+				<%= q.text_area :title, class: "form-control" %><br>
+				<%= q.submit "Submit", class: "btn btn-primary"%>
+				<%= link_to "Back", root_path, class: "btn btn-default" %>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>

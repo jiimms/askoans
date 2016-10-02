@@ -1,21 +1,30 @@
+<div class = "container">
+	<div class= "jumbotron">
+		<div class="row">
+  			<div class="col-md-6 col-md-offset-3">
 
-<table>
-	<% @users.each do |user|%>
-		<tr>
-			<td>
-				<%= link_to user.name, user_path(user)%>
-			</td>
-			<td>
-				<%= link_to "Profile", user_path(user)%>
-			</td>
+				<h2 class= "text-center">List of Users </h2>
+				<table>
+					<% @users.each do |user|%>
+						<tr>
+							<td width = 200>
+								<%= link_to user.name, user_path(user)%>
+							</td>
+							<td width = 150>
+								<%= link_to "Profile", user_path(user)%>
+							</td>
 
-			<td>
-				<%= link_to "Edit", edit_user_path(user)%>
-			</td>
+							<td width = 150>
+								<%= link_to "Edit", edit_user_path(user)%>
+							</td>
 
-			<td>
-				<%= button_to "Delete", user_path(user.id), method: :delete, data: { confirm: "Are you sure you want to delete all details of this user from this application? Think about it again before clicking-ok. You can not reverse this delete. Please proceed with caution. Okay,enough warnings given, now make your choice!"}%>
-			</td>
-		</tr>
-	<%end%>
-</table>
+							<td width = 150>
+								<%= button_to "Delete", user_path(user.id), method: :delete, data: { confirm: "Are you sure you want to delete all details of this user from this application? Think about it again before clicking-ok. You can not reverse this delete. Please proceed with caution. Okay,enough warnings given, now make your choice!"}%>
+							</td>
+						</tr>
+					<%end%>
+				</table>
+			</div>
+  		</div>
+	</div>
+</div>
