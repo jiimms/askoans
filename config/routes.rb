@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   
+  
+
   root 'questions#index'
 
   
@@ -26,6 +28,8 @@ get '/logout' => 'sessions#destroy'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :users
-    resources :questions
+    resources :questions do
+      resources :answers
+    end
 
 end

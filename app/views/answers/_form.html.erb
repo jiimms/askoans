@@ -1,0 +1,9 @@
+<%if !current_user.nil?%>
+	<%=form_for([@question, @question.answers.build]) do |f|%>
+	<%= f.label :response, "Your Answer"%><br>
+	<%= f.text_area	:response, class: "form-control"%><br>
+	<%=f.submit "submit"%>
+	<%end%>
+<%else%>
+<span><%= link_to "Login", login_path%> or <%= link_to "Sign up", signup_path%> to answer this question</span>
+<%end%>
