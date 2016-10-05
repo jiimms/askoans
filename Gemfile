@@ -43,7 +43,7 @@ group :production do
 	gem 'pg'
 end
 
-
+gem 'acts_as_votable', '~> 0.10.0'
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
