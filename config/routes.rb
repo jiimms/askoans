@@ -29,7 +29,21 @@ get '/logout' => 'sessions#destroy'
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :users
     resources :questions do
+      member do
+      put "like", to:    "questions#upvote"
+      put "dislike", to: "questions#downvote"
+    end
       resources :answers
     end
+
+
+
+
+
+
+# another way to include voting routes unlike how i have included for questions
+resources :answers do
+  match "vote", action: :vote, via: [:put,:delete], on: :member
+end
 
 end

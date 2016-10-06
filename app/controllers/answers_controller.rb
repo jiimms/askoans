@@ -36,4 +36,17 @@ class AnswersController < ApplicationController
 		@answer.destroy
 		redirect_to question_path(@question)
 	end
+
+	def vote
+		if request.put?
+		@answer=Answer.find(params[:id])
+		@answer.liked_by current_user
+		redirect_to :back
+		elsif request.delete?
+
+		@answer=Answer.find(params[:id])
+		@answer.disliked_by current_user
+		redirect_to :back
+	end
+	end
 end

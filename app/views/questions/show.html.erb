@@ -8,6 +8,20 @@
 
 				<small>Submitted <%=time_ago_in_words(@question.created_at)%> ago by <%=@question.user.name%>
 				</small><br>
+
+				<% if logged_in? %>
+				<%= button_to "Upvote", like_question_path(@question), method: :put %>
+				<%=@question.get_upvotes.size%>
+
+				<%= button_to "Downvote", dislike_question_path(@question), method: :put %>
+				<%=@question.get_downvotes.size%>
+
+				<% else%>
+				<small><%= link_to "Login", login_path%> or <%= link_to "Sign up", signup_path%> to answer/rate this question</small>
+
+				<% end %>
+
+
 				<%= render @question.answers%> <br>
 
 				<%= render 'answers/form'%>
