@@ -5,17 +5,24 @@
 <%flash.each do |msg_type, msg|%>
 	<div class ="alert alert-<%=msg_type%>"><%=msg%>, <%= @user.name.split(" ").shift.capitalize%></div>
 <%end%>
-<h1><%= (@user.name).titleize %></h1>
+<h2 class = "profile_name"><%= (@user.name).titleize %></h2>
 
 <p>
 <div class= "page-header">
-<h4><%= (@user.name.split(" ").shift).capitalize%>'s activity</h4></p> </div>
-<h3>Questions asked</h3>
+<!-- <h4><%= (@user.name.split(" ").shift).capitalize%>'s activity</h4></p> </div>
+ --><h3>Questions asked</h3>
 <% @user.questions.pluck(:title, :id).each do |title, id|%>
 <h3><%= link_to title, question_path(id), class: "link-to-text-color" %></h3>
 <%end%>
+<hr>
+<h3>Answered by you </h3>
+<% @user.answers.pluck(:response, :question_id).each do |response, question_id|%>
 
-<h3>Answers</h3>
+<h3  class= "link-to-text-color"><%=response%></h3>
+
+<span>In response to: </span><%= link_to Question.find(question_id).title, question_path(question_id), class: "link-to-text-color" %>
+
+<%end%>
 	</div>
 		</div>
 				</div>
