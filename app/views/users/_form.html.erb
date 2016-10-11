@@ -29,6 +29,16 @@
 		<%= user.label :password%><br>
 		<%= user.password_field :password, class: 'form-control'%> 
 		</p>
+
+		<p class="field">
+    		<%= user.label :image %><br>
+    		<%= user.file_field :image %>
+    		<% if user.object.image? %>
+      <%= image_tag user.object.image.url %>
+      <%= user.label :remove_image %>
+      <%= user.check_box :remove_image %> 
+    <% end %>
+ 		</p>
 		<%= user.submit "Submit", class: 'form-control btn btn-primary'%>
 	<%end%>
 
