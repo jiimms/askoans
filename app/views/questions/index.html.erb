@@ -6,9 +6,10 @@
   				<% @questions.each do |q|%>
   					<div>
               <h2 class= "questions_bottom_margin"><%= image_tag q.user.image.thumb.url%>
-  						 <%= link_to q.title, question_path(q), class: 'link-to-text-color'%>
-  						<span class = "btn btn-default">
-  						<%= link_to "Answer it!", question_path(q) %></span></h2><small>--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%> </small><br>
+  						 <%= link_to q.title, question_path(q), class: 'link-to-text-color'%> <span class = "answer-count"><%=q.answers.count%> ans </span>
+  						<span class = "btn btn-default answer-button"> 
+  						<%= link_to "Answer it!", question_path(q) %></span></h2><small>--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%> </small> 
+
               <% if current_user == q.user %>
                 <%= link_to "Edit", edit_question_path(q)%><%= button_to "Delete", q, method: :delete, data: {confirm: "Are you sure?"}%>
               <%end%>
