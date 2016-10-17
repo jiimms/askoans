@@ -1,0 +1,1 @@
+Figaro.require_keys("ACCESS_KEY", "SECRET_ACCESS_KEY", "BUCKET")
