@@ -4,9 +4,9 @@ require 'carrierwave/orm/activerecord'
     config.fog_credentials = {
       # Configuration for Amazon S3
       :provider              => 'AWS',
-      :aws_access_key_id     => 'AKIAIKXAZWCFKZRCMIYQ',
-      :aws_secret_access_key => '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',
+      :aws_access_key_id     => ENV["access_key"],
+      :aws_secret_access_key => ENV["secret_access_key"],
       :region => 'us-west-2'
     }
-    config.fog_directory     =  'askons-assets'
+    config.fog_directory     =  ENV["bucket"]
   end
