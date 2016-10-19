@@ -8,6 +8,8 @@ body {
 
 .questions_bottom_margin{
 	margin-bottom: 0;
+	color: #53868B;
+	font-weight: bold;
 
 }
 
@@ -56,4 +58,11 @@ font-weight: bold;
 	border: none;
 	color: #7AC5CD;
 	font-weight: bold;
+}
+
+.answer_user_name {
+	color: gray;
+	font-style: italic;
+	font-weight: lighter;
+	font-size: 16px;
 }

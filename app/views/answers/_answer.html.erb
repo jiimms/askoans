@@ -1,5 +1,5 @@
 <div class ="each_answer_on_question_page">
-	<p><%=answer.user.name.split[0]%>: 
+	<p><span class = "answer_user_name"><%=answer.user.name.split[0]%>: </span>
 		<%=answer.response	%><br>
 		<span class = "time_ago"><%=time_ago_in_words(answer.created_at)%> ago </span class = "time_ago"><br>
 	</p>
