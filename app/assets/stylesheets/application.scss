@@ -7,8 +7,8 @@ body {
 }
 
 .questions_bottom_margin{
-	margin-bottom: 0;
-	color: #53868B;
+/*	margin-bottom: 0;
+*/	color: #53868B;
 	font-weight: bold;
 
 }
@@ -60,9 +60,30 @@ font-weight: bold;
 	font-weight: bold;
 }
 
+.delete-button {
+	background: transparent;
+	border: none;
+	color: red;
+	font-weight: bold;
+	display: inline-block;
+
+}
+
 .answer_user_name {
 	color: gray;
 	font-style: italic;
 	font-weight: lighter;
 	font-size: 16px;
+}
+
+.edit-delete-buttons{
+	padding-left: 40px;
+	margin-top: -20px;
+	margin-bottom: -20px;
+}
+
+.submitted{
+	margin-bottom: 40px;
+	font-size: 10px;
+	padding-left: 40px;
 }
