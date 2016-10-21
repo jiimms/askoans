@@ -1,17 +1,18 @@
 <div class ="each_answer_on_question_page">
 	<p><span class = "answer_user_name"><%=answer.user.name.split[0]%>: </span>
-		<%=answer.response	%><br>
+		<%=answer.response.html_safe %><br>
+		<%if answer.user==current_user%>
+		<%= link_to "<i class = 'glyphicon glyphicon-pencil edit-glyph'></i>".html_safe, edit_question_answer_path(answer.question, answer)%>
+		<%= link_to "<i class='glyphicon glyphicon-remove delete-glyph'></i> ".html_safe, [answer.question, answer], method: :delete, data: { confirm: "Are you sure?" }%>
+	<%end%><br>
+
 		<span class = "time_ago"><%=time_ago_in_words(answer.created_at)%> ago </span class = "time_ago"><br>
 	</p>
-	<%if answer.user==current_user%>
-		<%= link_to "Edit", edit_question_answer_path(answer.question, answer)%>
-		<%= button_to "Delete", [answer.question, answer], method: :delete, data: { confirm: "Are you sure?" }%>
-	<%end%>
-
+	
 	<% if logged_in? %>
-		<%= button_to "Upvote", vote_answer_path(answer), method: :put %>
+		<%= link_to "<i class='glyphicon glyphicon-chevron-up'></i> ".html_safe, vote_answer_path(answer), method: :put %>
 			<%=answer.get_upvotes.size%> 
-		<%= button_to "Downvote", vote_answer_path(answer), method: :put %>
+		<%= link_to "<i class='glyphicon glyphicon-chevron-down'></i> ".html_safe, vote_answer_path(answer), method: :put %>
 		<%=answer.get_downvotes.size%>
 	<% else%>
 		<%=answer.get_upvotes.size%> Upvotes

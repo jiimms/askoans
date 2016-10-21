@@ -11,14 +11,16 @@
   						<span class = "btn btn-default answer-button"> 
   						<%= link_to "Answer it!", question_path(q) %></span>
               </p>
-              <div class = "edit-delete-buttons">
+               <div class = "edit-delete-buttons">
                <% if current_user == q.user %>
-                <%= link_to "Edit  ", edit_question_path(q)%><span class = "delete-button "><%= button_to "Delete", q, method: :delete, data: {confirm: "Are you sure?"}%></span>
+                <%= link_to "<i class='glyphicon glyphicon-pencil delete-glyph'></i> ".html_safe, edit_question_path(q)%><span class = "delete-button "><%= link_to "<i class='glyphicon glyphicon-remove delete-glyph'></i> ".html_safe, q, method: :delete, data: {confirm: "Are you sure?"}%></span>
                 </div>
               <%end%><br>
+              <div class= "submitted">--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%> </div>
+             
 
               
-              <div class= "submitted">--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%> </div>
+              
 
              
 

@@ -87,3 +87,23 @@ font-weight: bold;
 	font-size: 10px;
 	padding-left: 40px;
 }
+
+.voting-buttons {
+	display: inline;
+}
+
+.vote {
+	font-size: 12px;
+	padding-right:0;
+	float:right;
+	font-weight: lighter;
+}
+
+.vote-column {
+	padding-right:0
+}
+
+.edit-glyph, .delete-glyph {
+	color: black;
+	font-size: 12px
+}

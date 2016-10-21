@@ -1,7 +1,17 @@
 <div class = "container">
 	<div class= "jumbotron">
 		<div class="row">
-  			<div class="col-md-10 col-md-offset-1">
+			<div class="col-md-1 vote-column">
+			<h3>
+			<div class = "vote"><%= link_to "<i class='glyphicon glyphicon-chevron-up'></i> ".html_safe, like_question_path(@question), method: :put %>
+					<%=@question.get_upvotes.size%></div>
+
+				<br>
+
+				<div class = "vote"><%= link_to "<i class='glyphicon glyphicon-chevron-down'></i> ".html_safe, dislike_question_path(@question), method: :put %>
+				<%=@question.get_downvotes.size%></div></h3>
+			</div>
+  			<div class="col-md-10">
   				
 				<h3 class= "questions_bottom_margin"><%= image_tag @question.user.image.thumb.url%> <%= @question.title%>
 				</h3>
@@ -9,14 +19,10 @@
 				<small>Submitted <%=time_ago_in_words(@question.created_at)%> ago by <%=@question.user.name%>
 				</small><br>
 
-				<% if logged_in? %>
-				<%= button_to "Upvote", like_question_path(@question), method: :put %>
-				<%=@question.get_upvotes.size%>
+				<% if !logged_in? %>
+				
 
-				<%= button_to "Downvote", dislike_question_path(@question), method: :put %>
-				<%=@question.get_downvotes.size%>
-
-				<% else%>
+				
 				<small><%= link_to "Login", login_path%> or <%= link_to "Sign up", signup_path%> to answer/rate this question</small>
 
 				<% end %>
