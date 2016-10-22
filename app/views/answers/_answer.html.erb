@@ -1,24 +1,30 @@
 <div class ="each_answer_on_question_page">
-	<p><span class = "answer_user_name"><%=answer.user.name.split[0]%>: </span>
-		<%=answer.response.html_safe %><br>
-		<%if answer.user==current_user%>
-		<%= link_to "<i class = 'glyphicon glyphicon-pencil edit-glyph'></i>".html_safe, edit_question_answer_path(answer.question, answer)%>
-		<%= link_to "<i class='glyphicon glyphicon-remove delete-glyph'></i> ".html_safe, [answer.question, answer], method: :delete, data: { confirm: "Are you sure?" }%>
-	<%end%><br>
+	<div class="row">
+		<div class="col-md-1 vote-column">
+			<h3>
+			<div class = "vote">
+				<%= link_to "<i class='glyphicon glyphicon-chevron-up'></i> ".html_safe, vote_answer_path(answer), method: :put %>
+					<%=answer.get_upvotes.size%> </div> <br>
+			<div class = "vote">
+				<%= link_to "<i class='glyphicon glyphicon-chevron-down'></i> ".html_safe, vote_answer_path(answer), method: :put %>
+				<%=answer.get_downvotes.size%></div>
+			</h3>
+		</div>
 
-		<span class = "time_ago"><%=time_ago_in_words(answer.created_at)%> ago </span class = "time_ago"><br>
-	</p>
+		<div class="col-md-10">
+			<p><span class = "answer_user_name"><%=answer.user.name.split[0]%>: </span>
+			<%=answer.response.html_safe %><br>
+			<span class = "time_ago"><%=time_ago_in_words(answer.created_at)%> ago  </span>
+
+			<%if answer.user==current_user%>
+			<%= link_to "<i class = 'glyphicon glyphicon-pencil edit-glyph'></i>".html_safe, edit_question_answer_path(answer.question, answer)%>
+			<%= link_to "<i class='glyphicon glyphicon-remove delete-glyph'></i> ".html_safe, [answer.question, answer], method: :delete, data: { confirm: "Are you sure?" }%>
+			<%end%><br>
+
+			
+			</p>
 	
-	<% if logged_in? %>
-		<%= link_to "<i class='glyphicon glyphicon-chevron-up'></i> ".html_safe, vote_answer_path(answer), method: :put %>
-			<%=answer.get_upvotes.size%> 
-		<%= link_to "<i class='glyphicon glyphicon-chevron-down'></i> ".html_safe, vote_answer_path(answer), method: :put %>
-		<%=answer.get_downvotes.size%>
-	<% else%>
-		<%=answer.get_upvotes.size%> Upvotes
-		<%=answer.get_downvotes.size%> Downvotes
-
-
-		<small><%= link_to "Login", login_path%> or <%= link_to "Sign up", signup_path%> to rate this answer</small>
-	<% end %>
+			
+		</div>
+	</div>
 </div>

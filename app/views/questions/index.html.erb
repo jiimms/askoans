@@ -2,33 +2,26 @@
 	<div class= "jumbotron">
 		<div class="row">
   			<div class="col-md-10 col-md-offset-1">
-  			<H3>New Questions</H3>
+  			   <H3>New Questions</H3>
   				<% @questions.each do |q|%>
   					<div>
-              <p class= "questions_bottom_margin"><%= image_tag q.user.image.thumb.url%>
-  						 <%= link_to q.title, question_path(q), class: 'link-to-text-color'%> <span class = "answer-count"><%=q.answers.count%> ans </span>
+                        <p><%= image_tag q.user.image.thumb.url%>
+  						     <%= link_to q.title, question_path(q), class: 'link-to-text-color'%> <span class = "answer-count"><%=q.answers.count%> ans </span>
 
-  						<span class = "btn btn-default answer-button"> 
-  						<%= link_to "Answer it!", question_path(q) %></span>
-              </p>
-               <div class = "edit-delete-buttons">
-               <% if current_user == q.user %>
-                <%= link_to "<i class='glyphicon glyphicon-pencil delete-glyph'></i> ".html_safe, edit_question_path(q)%><span class = "delete-button "><%= link_to "<i class='glyphicon glyphicon-remove delete-glyph'></i> ".html_safe, q, method: :delete, data: {confirm: "Are you sure?"}%></span>
-                </div>
-              <%end%><br>
-              <div class= "submitted">--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%> </div>
-             
-
-              
-              
-
-             
-
-  					</div>
+  						    <span class = "btn btn-default answer-button"> 
+  						    <%= link_to "Answer it!", question_path(q) %></span><br>                    
+                            <span class= "submitted">--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%>
+                            </span>
+                            <span class = "edit-delete-buttons">
+                                <% if current_user == q.user %>
+                                    <%= link_to "<i class='glyphicon glyphicon-pencil delete-glyph'></i> ".html_safe, edit_question_path(q)%>
+                                     <%= link_to "<i class='glyphicon glyphicon-remove delete-glyph'></i> ".html_safe, q, method: :delete, data: {confirm: "Are you sure?"}%>
+                                <% end%>
+                            </span>
+                        </p>
+                    </div>
   				<% end%>
-
-
-  			</div>
-  			</div>
-  			</div>
-  			</div>
+            </div>
+  		</div>
+  	</div>
+</div>

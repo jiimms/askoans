@@ -6,12 +6,12 @@ body {
 	height: 100vh;
 }
 
-.questions_bottom_margin{
-/*	margin-bottom: 0;
-*/	color: #53868B;
+/*.questions_bottom_margin{
+	margin-bottom: 0;
+	color: #53868B;
 	font-weight: bold;
 
-}
+}*/
 
 .link-to-text-color {
 	color: gray;
@@ -104,6 +104,12 @@ font-weight: bold;
 }
 
 .edit-glyph, .delete-glyph {
-	color: black;
-	font-size: 12px
+	color: maroon;
+	font-size: 12px;
+	opacity: 0.6;
 }
+
+.edit-glyph:hover, .delete-glyph:hover {
+		opacity: 1;
+	}
+
