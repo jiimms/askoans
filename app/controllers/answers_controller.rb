@@ -8,7 +8,8 @@ class AnswersController < ApplicationController
 		if@answer.save
 			redirect_to question_path(@question)
 		else
-			render :new
+			redirect_to question_path(@question)
+			flash[:danger] = "You haven't typed anything Dawg!!" 
 		end
 	end
 

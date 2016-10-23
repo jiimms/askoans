@@ -13,12 +13,19 @@ body {
 
 }*/
 
-.link-to-text-color {
+.link-to-text-color,.question-on-show,.new-question  {
 	color: gray;
+	font-size: 20px;
+	text-align: justify-all;
+	}
+
+	.link-to-text-color:hover{
+		color: black;
+		text-decoration: none;
 	}
 
 	
-	 td {
+td {
     border-bottom: 2px solid #ddd;
     padding-top: 20px;
 }
@@ -53,24 +60,10 @@ font-weight: bold;
 	color: #5F9EA0;
 }
 
-.answer-button {
-	background: transparent;
-	border: none;
-	color: #7AC5CD;
-	font-weight: bold;
-}
 
-.delete-button {
-	background: transparent;
-	border: none;
-	color: red;
-	font-weight: bold;
-	display: inline-block;
-
-}
 
 .answer_user_name {
-	color: gray;
+	color: darkRed;
 	font-style: italic;
 	font-weight: lighter;
 	font-size: 16px;
@@ -100,7 +93,8 @@ font-weight: bold;
 }
 
 .vote-column {
-	padding-right:0
+	padding-right:0;
+	padding-left: 0;
 }
 
 .edit-glyph, .delete-glyph {
@@ -113,3 +107,27 @@ font-weight: bold;
 		opacity: 1;
 	}
 
+	.question-on-index{
+		padding: 0;
+	}
+	.image-index{
+		padding-right: 0;
+	}
+
+	.answer-count-on-index{
+		padding-left: 0
+	}
+
+	.answers-on-show{
+		color: #2f4f4f;
+		text-align: justify-all;
+	}
+
+	.answer-button{
+		color: #7AC5CD;
+		font-weight: bold;
+	}
+
+	.heart {
+		color: darkRed;
+	}

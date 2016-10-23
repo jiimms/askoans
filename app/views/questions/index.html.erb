@@ -1,27 +1,44 @@
 <div class = "container">
 	<div class= "jumbotron">
 		<div class="row">
-  			<div class="col-md-10 col-md-offset-1">
+        	<div class="col-md-10 col-md-offset-1">
   			   <H3>New Questions</H3>
-  				<% @questions.each do |q|%>
-  					<div>
-                        <p><%= image_tag q.user.image.thumb.url%>
-  						     <%= link_to q.title, question_path(q), class: 'link-to-text-color'%> <span class = "answer-count"><%=q.answers.count%> ans </span>
-
-  						    <span class = "btn btn-default answer-button"> 
-  						    <%= link_to "Answer it!", question_path(q) %></span><br>                    
-                            <span class= "submitted">--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%>
-                            </span>
-                            <span class = "edit-delete-buttons">
-                                <% if current_user == q.user %>
-                                    <%= link_to "<i class='glyphicon glyphicon-pencil delete-glyph'></i> ".html_safe, edit_question_path(q)%>
-                                     <%= link_to "<i class='glyphicon glyphicon-remove delete-glyph'></i> ".html_safe, q, method: :delete, data: {confirm: "Are you sure?"}%>
-                                <% end%>
-                            </span>
-                        </p>
-                    </div>
-  				<% end%>
             </div>
-  		</div>
+        </div>
+
+        <% @questions.each do |q|%>
+            <div class ="row">
+  				<div class ="col col-md-1 image-index">
+                    <%= image_tag q.user.image.thumb.url%>
+                </div>
+
+                <div class = "col col-md-8   question-on-index">
+  					<%= link_to q.title, question_path(q), class: 'link-to-text-color'%> <br>
+
+                    <%if logged_in? && current_user.name.downcase.split[0] == "samuel" && q.user.name.downcase.split[0] == "samuel"%>
+                        <span class= "submitted heart">--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%> aka LOML
+                        </span>
+                    <%else%>
+                        <span class= "submitted">--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%>
+                        </span>
+                    <%end%>
+
+                    <span class = "edit-delete-buttons">
+                        <% if current_user == q.user %>
+                            <%= link_to "<i class='glyphicon glyphicon-pencil delete-glyph'></i> ".html_safe, edit_question_path(q)%>
+                            <%= link_to "<i class='glyphicon glyphicon-remove delete-glyph'></i> ".html_safe, q, method: :delete, data: {confirm: "Are you sure?"}%>
+                        <% end%>
+                    </span>
+                </div>
+
+                <div class ="col col-md-2 answer-count-on-index">
+                    <span class = "answer-count"><%=q.answers.count%> ans &nbsp;&nbsp; </span>
+                    <span class= "answer-button"> 
+  						<%= link_to " Answer it!",question_path(q) %>
+                    </span>
+                </div>   
+
+		    </div><br>
+        <% end%>
   	</div>
 </div>

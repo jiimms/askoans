@@ -11,9 +11,9 @@
 			</h3>
 		</div>
 
-		<div class="col-md-10">
+		<div class="col-md-11">
 			<p><span class = "answer_user_name"><%=answer.user.name.split[0]%>: </span>
-			<%=answer.response.html_safe %><br>
+			<span class = "answers-on-show"><%=answer.response.html_safe%></span><br>
 			<span class = "time_ago"><%=time_ago_in_words(answer.created_at)%> ago  </span>
 
 			<%if answer.user==current_user%>

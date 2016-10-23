@@ -2,7 +2,11 @@
 	<div class= "jumbotron">
 		<div class="row">
   			<div class="col-md-10 col-md-offset-1">
-  			<h2>What would you like to know today?</h2>
+  			<% if current_user.name.split[0].downcase == "samuel"%>
+  				<h2 class ="new-question heart"> Hello <i class='glyphicon glyphicon-heart-empty heart'>Sammy</i><i class='glyphicon glyphicon-heart-empty heart'></i>, What would you like to know today? Ask away!</h2>
+  			<%else%>
+  				<h2 class ="new-question heart"> Hello <%= current_user.name.split[0]%>, What would you like to know today? Ask away!</h2>
+  			<%end%>
 
 			<%= form_for @question do |q|%>
 				<%= q.label :title, "Ask" %><br>
