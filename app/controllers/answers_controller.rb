@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
 
-  def create
+	 def create
 		@question = Question.find(params[:question_id])
 		@answer = @question.answers.create(params[:answer].permit(:response))
 		@answer.user_id = current_user.id if current_user
@@ -31,23 +31,36 @@ class AnswersController < ApplicationController
 		end
 	end
 
-  def destroy
+ 	def destroy
 		@question = Question.find(params[:question_id])
 		@answer = @question.answers.find(params[:id])
 		@answer.delete
 		redirect_to question_path(@question)
 	end
 
-	def vote
-		if request.put?
+	def upvote
 		@answer=Answer.find(params[:id])
-		@answer.liked_by current_user
+		@answer.upvote_by current_user
 		redirect_to :back
-		elsif request.delete?
+	end
 
+	def downvote
 		@answer=Answer.find(params[:id])
-		@answer.disliked_by current_user
+		@answer.downvote_by current_user
 		redirect_to :back
 	end
-	end
+	
 end
+
+
+ #  def vote
+	# 	if request.put?
+	# 	@answer=Answer.find(params[:id])
+	# 	@answer.liked_by current_user
+	# 	redirect_to :back
+	# 	elsif request.delete?
+
+	# 	@answer=Answer.find(params[:id])
+	# 	@answer.disliked_by current_user
+	# 	redirect_to :back
+	# end
