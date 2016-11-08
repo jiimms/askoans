@@ -15,8 +15,8 @@
                 <div class = "col col-md-8   question-on-index">
   					<%= link_to q.title, question_path(q), class: 'link-to-text-color'%> <br>
 
-                    <%if logged_in? && current_user.name.downcase.split[0] == "samuel" && q.user.name.downcase.split[0] == "samuel"%>
-                        <span class= "submitted">--Submitted <%=time_ago_in_words(q.created_at)%> ago by <span class =" heart"> <%=q.user.name%> </span>aka LOML
+                    <%if logged_in? && current_user.name.downcase.split[0] == "rayaan" && q.user.name.downcase.split[0] == "rayaan"%>
+                        <span class= "submitted">--Submitted <%=time_ago_in_words(q.created_at)%> ago by <span class =" heart"> <%=q.user.name%> </span>aka Sunshine
                         </span>
                     <%else%>
                         <span class= "submitted">--Submitted <%=time_ago_in_words(q.created_at)%> ago by <%=q.user.name%>

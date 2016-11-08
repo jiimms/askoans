@@ -22,8 +22,8 @@
 			<div class="col-md-9">
 				<span class =" question-on-show"><%= @question.title %></span><br>
 
-				<%if logged_in? && current_user.name.downcase.split[0] == "samuel" && @question.user.name.downcase.split[0] == "samuel"%>
-					<small>Submitted <%=time_ago_in_words(@question.created_at)%> ago by <span class ="heart">Samuel </span> aka The Dickman
+				<%if logged_in? && current_user.name.downcase.split[0] == "rayaan" && @question.user.name.downcase.split[0] == "rayaan"%>
+					<small>Submitted <%=time_ago_in_words(@question.created_at)%> ago by <span class ="heart">rayaan </span> aka The Monkey boy
 					</small><br>
 				<%else%>
 					<small>Submitted <%=time_ago_in_words(@question.created_at)%> ago by <%=@question.user.name%>

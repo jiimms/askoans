@@ -3,7 +3,7 @@
 <!-- <div class="row">
   <div class="col-md-10 col-md-offset-1"> -->
 <%flash.each do |msg_type, msg|%>
-	<%if @user.name.split[0].downcase == "samuel"%>
+	<%if @user.name.split[0].downcase == "rayaan"%>
 		<div class ="alert alert-<%=msg_type%>"><%=msg%>, <%= "Loverboy"%></div>
 	<%else%>
 		<div class ="alert alert-<%=msg_type%>"><%=msg%>, <%= @user.name.split(" ").shift.capitalize%></div>

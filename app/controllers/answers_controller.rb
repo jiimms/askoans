@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
 		@answer = @question.answers.create(params[:answer].permit(:response))
 		@answer.user_id = current_user.id if current_user
 		@answer.save
-		if@answer.save
+		if @answer.save
 			redirect_to question_path(@question)
 		else
 			redirect_to question_path(@question)
